@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:gravity="center"
+    android:orientation="vertical" >
+    
+    <GridView
+        android:id="@+id/video_gridview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/top_layout"
+        android:layout_above="@id/playback_seekbar2"
+        android:layout_margin="8.0dip"
+        android:horizontalSpacing="6.0dip"
+        android:numColumns="3"
+        android:verticalSpacing="6.0dip" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/video_viewPager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="invisible" >
+    </android.support.v4.view.ViewPager>
+    
+    <android.support.v4.view.ViewPager
+        android:id="@+id/video_viewPagerSub"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="invisible" >
+    </android.support.v4.view.ViewPager>
+
+</RelativeLayout>

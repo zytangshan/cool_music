@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Media</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="opinion">请提出宝贵意见!</string>
+    <string name="audio">音乐</string>
+    <string name="video">视频</string>
+    <string name="picture">图片</string>
+
+</resources>

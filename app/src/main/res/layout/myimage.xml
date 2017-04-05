@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_mymusic_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+    
+    <RelativeLayout
+        android:id="@+id/image_topLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@color/half_transparent" >
+        
+        <ImageButton android:id="@+id/image_backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/selector_music_btn"
+            android:padding="10dip"
+            android:src="@drawable/icon_back"/>
+
+        <TextView
+            android:id="@+id/image_topTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="图片列表"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_text_sp" />
+
+        <ImageButton
+            android:id="@+id/image_searchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/selector_music_btn"
+            android:padding="10.0dip"
+            android:src="@drawable/icon_search" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/image_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/image_topLayout"
+        android:divider="@color/divider_color"
+        android:dividerHeight="0.5dip"
+        android:visibility="gone"/>
+    <GridView
+        android:id="@+id/image_gridview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/image_topLayout"
+        android:divider="@color/divider_color"
+        android:dividerHeight="0.5dip"
+        android:layout_margin="8.0dip"
+        android:horizontalSpacing="6.0dip"
+        android:numColumns="2"
+        android:verticalSpacing="6.0dip"/>
+
+</RelativeLayout>
