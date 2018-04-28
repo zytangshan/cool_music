@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$USER_HOME$/code/my_github/music/app/app.iml" filepath="$USER_HOME$/code/my_github/music/app/app.iml" />
+      <module fileurl="file://$USER_HOME$/code/my_github/music/music.iml" filepath="$USER_HOME$/code/my_github/music/music.iml" />
+    </modules>
+  </component>
+</project>

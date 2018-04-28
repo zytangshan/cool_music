@@ -9,6 +9,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -39,13 +41,14 @@ import java.util.ArrayList;
  */
 
 public class ImageFolderFragment extends Fragment implements IConstant{
-    private FolderAdapter folderAdapter;
+    private static FolderAdapter folderAdapter;
     private ImageButton back;
-    private ListView folderList;
+    private static ListView folderList;
     private ImageGridFragment imageGridFragment;
     private RelativeLayout mMainLayout;
     private ChangeBgReceiver changeBgReceiver;
-    private Context mContext;
+    private static Context mContext;
+    private MyHandler myHandler;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,12 +60,20 @@ public class ImageFolderFragment extends Fragment implements IConstant{
                              @Nullable Bundle savedInstanceState) {
         Log.e("david", "create view 1");
         View view = inflater.inflate(R.layout.folderbrower, container, false);
-        folderAdapter = new FolderAdapter(getContext(), ImageUtils.queryFolder(getContext()));
+        myHandler = new MyHandler();
+        mContext = getContext();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                folderAdapter = new FolderAdapter(mContext, ImageUtils.queryFolder(mContext));
+                myHandler.sendEmptyMessage(0);
+            }
+        }).start();
+
         back = (ImageButton)view.findViewById(R.id.backBtn);
         back.setOnClickListener(new ViewOnClickListener());
         folderList = (ListView) view.findViewById(R.id.folder_listview);
         Log.e("david", "create view 2");
-        folderList.setAdapter(folderAdapter);
         imageGridFragment = new ImageGridFragment();
         folderList.setOnItemClickListener(new ItemOnClickListener());
         mMainLayout = (RelativeLayout) view.findViewById(R.id.main_folder_layout);
@@ -82,6 +93,14 @@ public class ImageFolderFragment extends Fragment implements IConstant{
         }
 
         return view;
+    }
+
+    public static class MyHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            folderList.setAdapter(folderAdapter);
+        }
     }
 
     public class FolderAdapter extends BaseAdapter implements IConstant {

@@ -9,6 +9,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -40,25 +42,28 @@ public class ImageFragment extends Fragment implements IConstant {
     private BackBroadcastReceiver backBroadcastReceiver;
     private RelativeLayout mMainLayout;
     private ChangeBgReceiver changeBgReceiver;
+    private static GridViewAdapter myAdapter;
+    private MyHandler myHandler;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //return super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.picture_main,container,false);
-        ImageFragment.GridViewAdapter myAdapter = new ImageFragment.GridViewAdapter();
+        myAdapter = new ImageFragment.GridViewAdapter();
         GridView videoGridView = (GridView) view.findViewById(R.id.picture_gridview);
         videoGridView.setAdapter(myAdapter);
+        myHandler = new MyHandler();
         new Thread(new Runnable() {
             @Override
             public void run() {
                 imageGridFragment = new ImageGridFragment();
                 imageFolderFragment = new ImageFolderFragment();
+                myAdapter.setNum(ImageUtils.getImage(getContext()).size(),
+                        ImageUtils.queryFolder(getContext()).size(), 0);
+                myHandler.sendEmptyMessage(0);
             }
         }).start();
 
-
-        myAdapter.setNum(ImageUtils.getImage(getContext()).size(),
-                ImageUtils.queryFolder(getContext()).size(), 0);
         backBroadcastReceiver = new BackBroadcastReceiver();
         IntentFilter intentFilter = new IntentFilter("Image Back Press");
         intentFilter.addAction("Image Back Press");
@@ -81,6 +86,15 @@ public class ImageFragment extends Fragment implements IConstant {
 
         return view;
     }
+
+    public static class MyHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            myAdapter.notifyDataSetChanged();
+        }
+    }
+
     private class GridViewAdapter extends BaseAdapter {
 
         private int[] drawable = new int[] { R.drawable.icon_local_music,
@@ -107,7 +121,6 @@ public class ImageFragment extends Fragment implements IConstant {
             videoNum = music_num;
             folderNum = folder_num;
             favoriteNum = favorite_num;
-            notifyDataSetChanged();
         }
 
         @Override

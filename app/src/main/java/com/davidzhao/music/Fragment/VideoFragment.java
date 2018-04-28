@@ -9,6 +9,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -37,25 +39,35 @@ import java.io.InputStream;
 public class VideoFragment extends Fragment implements IConstant {
     private VideoListFragment videoListFragment;
     private VideoFolderFragment videoFolderFragment;
-    BackBroadcastReceiver backBroadcastReceiver;
-    ChangeBgReceiver changeBgReceiver;
-    RelativeLayout mMainLayout;
+    private BackBroadcastReceiver backBroadcastReceiver;
+    private ChangeBgReceiver changeBgReceiver;
+    private RelativeLayout mMainLayout;
+    private GridView videoGridView;
+    private static GridViewAdapter myAdapter;
+    private MyHandler myHandler;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         //return super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.video_main,container,false);
-        GridViewAdapter myAdapter = new GridViewAdapter();
-        GridView videoGridView = (GridView) view.findViewById(R.id.video_gridview);
-        videoGridView.setAdapter(myAdapter);
+        videoGridView = (GridView) view.findViewById(R.id.video_gridview);
         videoListFragment = new VideoListFragment();
         videoFolderFragment = new VideoFolderFragment();
         backBroadcastReceiver = new BackBroadcastReceiver();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("Back Press");
-        myAdapter.setNum(VideoUtils.getVideo(getContext()).size(),
-                VideoUtils.queryFolder(getContext()).size());
+        myHandler = new MyHandler();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                myAdapter = new GridViewAdapter();
+                videoGridView.setAdapter(myAdapter);
+                myAdapter.setNum(VideoUtils.getVideo(getContext()).size(),
+                        VideoUtils.queryFolder(getContext()).size());
+                myHandler.sendEmptyMessage(0);
+            }
+        }).start();
         getActivity().registerReceiver(backBroadcastReceiver, intentFilter);
         mMainLayout = (RelativeLayout) view.findViewById(R.id.main_layout);
         IntentFilter filter = new IntentFilter(BROADCAST_CHANGEBG);
@@ -74,6 +86,14 @@ public class VideoFragment extends Fragment implements IConstant {
         }
 
         return view;
+    }
+
+    public static class MyHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            myAdapter.notifyDataSetChanged();
+        }
     }
     private class GridViewAdapter extends BaseAdapter {
 
@@ -100,7 +120,6 @@ public class VideoFragment extends Fragment implements IConstant {
         public void setNum(int music_num, int folder_num) {
             videoNum = music_num;
             folderNum = folder_num;
-            notifyDataSetChanged();
         }
 
         @Override

@@ -9,6 +9,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -41,10 +43,12 @@ import java.io.InputStream;
 
 public class ImageGridFragment extends Fragment implements IConstant {
     private ImageButton back;
-    private GridView imageList;
+    private static GridView imageList;
     private RelativeLayout mMainLayout;
     private ChangeBgReceiver changeBgReceiver;
     private Context mContext;
+    private MyHandler myHandler;
+    private static ImageAdapter imageAdapter;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -53,11 +57,17 @@ public class ImageGridFragment extends Fragment implements IConstant {
         back = (ImageButton)view.findViewById(R.id.image_backBtn);
         back.setOnClickListener(new ViewOnClickListener());
         imageList = (GridView)view.findViewById(R.id.image_gridview);
-        final ImageAdapter imageAdapter = new ImageAdapter(getContext(),
-                ImageUtils.getImage(getContext()));
+        myHandler = new MyHandler();
         mContext = getContext();
-        //Log.e("david", "image list " + ImageUtils.getImage(getContext()).get(0).imageName.toString());
-        imageList.setAdapter(imageAdapter);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                imageAdapter = new ImageAdapter(getContext(),
+                        ImageUtils.getImage(getContext()));
+                myHandler.sendEmptyMessage(0);
+            }
+        }).start();
+
         imageList.setOnItemClickListener(new GridView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -87,6 +97,14 @@ public class ImageGridFragment extends Fragment implements IConstant {
         }
 
         return view;
+    }
+
+    public static class MyHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            imageList.setAdapter(imageAdapter);
+        }
     }
 
     @Override

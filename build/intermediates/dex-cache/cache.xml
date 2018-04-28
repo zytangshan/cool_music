@@ -20,6 +20,24 @@
         <dex dex="/home/local/SPREADTRUM/david.zhao/Desktop/test/cool_music/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.2.0_fdf34ea1b49d556a3480c26ba235c124c6d6caa4/classes.dex" />
     </item>
     <item
+        is-multidex="false"
+        jar="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.2.0_4d925a06e5a3bcf2cd7940e5a08a93bf8c6115b5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.2.0_7f8f91de9b72a1018e9c29a0419602f6145f0e9f.jar" />
+    </item>
+    <item
         is-multidex="true"
         jar="/home/local/SPREADTRUM/david.zhao/Desktop/test/cool_music/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.2.0/jars/classes.jar"
         jumboMode="true"
@@ -47,6 +65,15 @@
         <dex dex="/home/local/SPREADTRUM/david.zhao/Desktop/test/cool_music/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.2.0_721b383590f04d3dd0bb5c2034c6fdb19e9ac6a3/classes.dex" />
     </item>
     <item
+        is-multidex="false"
+        jar="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.2.0_90aa1596fc4b63804862b11341fb8890967d2273.jar" />
+    </item>
+    <item
         is-multidex="true"
         jar="/home/local/SPREADTRUM/david.zhao/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.2.0/support-annotations-25.2.0.jar"
         jumboMode="true"
@@ -54,6 +81,60 @@
         revision="25.0.2"
         sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
         <dex dex="/home/local/SPREADTRUM/david.zhao/Desktop/test/cool_music/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.2.0_ef237fd7bc9aa5b952f552c41f0095eeec2e459c/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/exploded-aar/org.xutils/xutils/3.3.44/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a4638691138066ea48da43ef8f85ce1f5a8c3015">
+        <dex dex="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/pre-dexed/debug/org.xutils-xutils-3.3.44_740c122e6e52d031cbb8d8fb4b85d21686bc1504.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/local/SPREADTRUM/david.zhao/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.2.0/support-annotations-25.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
+        <dex dex="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/pre-dexed/debug/support-annotations-25.2.0_ef237fd7bc9aa5b952f552c41f0095eeec2e459c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.2.0_d93fcf54fdabecfaf16613fcb3aa91633336fda0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
+        <dex dex="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.2.0_31d0de8c7051458fba772e5332b1b0817342e255.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.2.0_57afd92a85d9593c8e53ccc17e412b246f8c8a39.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.2.0_de8522294623989dfc411bfd92423dc1ff7ba2b1.jar" />
     </item>
     <item
         is-multidex="true"
@@ -74,6 +155,15 @@
         <dex dex="/home/local/SPREADTRUM/david.zhao/Desktop/test/cool_music/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_d9058a1ba270ef4f57662b9362b90149f8fc494c/classes.dex" />
     </item>
     <item
+        is-multidex="false"
+        jar="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/exploded-aar/com.jiechic.library/xUtils/2.6.14/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fe75606aa9485cd20177894c204291a79a0cc7ab">
+        <dex dex="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/pre-dexed/debug/com.jiechic.library-xUtils-2.6.14_ee45dc88c2385cea6b614afac34238a9e504d8c6.jar" />
+    </item>
+    <item
         is-multidex="true"
         jar="/home/local/SPREADTRUM/david.zhao/.gradle/caches/modules-2/files-2.1/com.belerweb/pinyin4j/2.5.1/ea23babfc45a078af5b73cd9f3401caad1f1b2a9/pinyin4j-2.5.1.jar"
         jumboMode="true"
@@ -92,6 +182,15 @@
         <dex dex="/home/local/SPREADTRUM/david.zhao/Desktop/test/cool_music/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.2.0_c3ecdf5b23084bd9f00016380c2bc9218d64983b/classes.dex" />
     </item>
     <item
+        is-multidex="false"
+        jar="/home/local/SPREADTRUM/david.zhao/.gradle/caches/modules-2/files-2.1/com.belerweb/pinyin4j/2.5.1/ea23babfc45a078af5b73cd9f3401caad1f1b2a9/pinyin4j-2.5.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ea23babfc45a078af5b73cd9f3401caad1f1b2a9">
+        <dex dex="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/pre-dexed/debug/pinyin4j-2.5.1_9c662781e3d2c3f19893cc13ff8281f11e65e721.jar" />
+    </item>
+    <item
         is-multidex="true"
         jar="/home/local/SPREADTRUM/david.zhao/Desktop/test/cool_music/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
@@ -108,6 +207,24 @@
         revision="25.0.2"
         sha1="fe75606aa9485cd20177894c204291a79a0cc7ab">
         <dex dex="/home/local/SPREADTRUM/david.zhao/Desktop/test/cool_music/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.jiechic.library-xUtils-2.6.14_479b1b14819d98df3e9052187728cdb44b06c726/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.2.0_37196e741bc715006ac4e631c3863df3bbe60764.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="/home/local/SPREADTRUM/david.zhao/code/my_github/music/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.2.0_ff821b7fc7e4b6dbe33ca718587a53f08e1f9aef.jar" />
     </item>
     <item
         is-multidex="true"

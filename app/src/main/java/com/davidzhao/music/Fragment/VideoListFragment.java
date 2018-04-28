@@ -9,6 +9,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -40,10 +42,13 @@ import java.util.ArrayList;
 
 public class VideoListFragment extends Fragment implements IConstant {
     private ImageButton back;
-    private ListView videoList;
+    private static ListView videoList;
     private RelativeLayout mMainLayout;
     private ChangeBgReceiver changeBgReceiver;
-    private Context mContext;
+    private static Context mContext;
+    private MyHandler myHandler;
+    private static VideoAdapter videoAdapter;
+    private static ArrayList<VideoInfo> videoInfos;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -52,10 +57,15 @@ public class VideoListFragment extends Fragment implements IConstant {
         back = (ImageButton)view.findViewById(R.id.video_backBtn);
         back.setOnClickListener(new ViewOnClickListener());
         videoList = (ListView)view.findViewById(R.id.video_listview);
-        final VideoAdapter videoAdapter = new VideoAdapter(getContext(),
-                VideoUtils.getVideo(getContext()));
+        myHandler = new MyHandler();
         mContext =getContext();
-        videoList.setAdapter(videoAdapter);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                videoInfos = VideoUtils.getVideo(mContext);
+                myHandler.sendEmptyMessage(0);
+            }
+        }).start();
         videoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -87,6 +97,15 @@ public class VideoListFragment extends Fragment implements IConstant {
         }
 
         return view;
+    }
+
+    public static class MyHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            videoAdapter = new VideoAdapter(mContext, videoInfos);
+            videoList.setAdapter(videoAdapter);
+        }
     }
 
     @Override

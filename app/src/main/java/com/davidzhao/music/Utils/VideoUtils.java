@@ -39,8 +39,6 @@ public class VideoUtils {
                         cursor.getColumnIndex(MediaStore.Video.Media.TITLE));
                 videoInfo.duration = cursor.getInt(
                         cursor.getColumnIndex(MediaStore.Video.Media.DURATION));
-                Toast.makeText(context, "david video title",
-                        Toast.LENGTH_SHORT).show();
                 Log.e("david", "video title" + videoInfo.videoName);
                 int id = cursor.getInt(cursor.getColumnIndex(MediaStore.Video.Media._ID));
                 BitmapFactory.Options options = new BitmapFactory.Options();
